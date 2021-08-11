@@ -27,5 +27,11 @@ class MainActivity : AppCompatActivity() {
         }
         mAdapter.taskList = list
         mAdapter.notifyDataSetChanged()
+
+
+        binding.btn.setOnClickListener {
+            list.set(0,"update")
+            mAdapter.notifyDataSetChanged()
+        }
     }
 }

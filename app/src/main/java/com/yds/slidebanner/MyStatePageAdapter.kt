@@ -13,4 +13,9 @@ class MyStatePageAdapter(manager: FragmentManager, behavior: Int, var taskList: 
     override fun getItem(position: Int): Fragment {
         return SlideFragment.buildFragment(taskList[position],position.toString())
     }
+
+    override fun getItemPosition(`object`: Any): Int {
+        //因为在MainActivity的btn点击后更改tasklist数据，调用notifyDataSetChanged刷新数据，结果不刷新，需要重写本方法并返回POSITION_NONE
+        return POSITION_NONE
+    }
 }
